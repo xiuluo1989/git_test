@@ -123,17 +123,3 @@ class TextCNN(object):
                 correct_predictions = tf.equal(self.predictions, tf.argmax(self.output, 1))
                 self.accuracy = tf.reduce_mean(tf.cast(correct_predictions, tf.float32), name='accuracy')
                 tf.summary.scalar('accuracy', self.accuracy)
-
-
-if __name__ == '__main__':
-    net = TextCNN(network_name="TextCNN",
-                  initializer=tf.random_normal_initializer(0.0, 0.1),
-                  regularizer=slim.l2_regularizer(0.05),
-                  vocab_size=100,
-                  n_class=2,
-                  batch_size=12,
-                  num_units=128)
-
-    # 构建可视化对象
-    writer = tf.summary.FileWriter('../graph', tf.get_default_graph())
-    writer.close()
