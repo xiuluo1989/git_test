@@ -1,7 +1,4 @@
 # -- encoding:utf-8 --
-'''
-git add test
-'''
 
 import os
 from datetime import datetime
